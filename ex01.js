@@ -35,6 +35,6 @@ function analizzaSpese(str) {
 }
 
 // Esempio di utilizzo:
-const stringaSpese = 'Reparto1 100 200 Reparto2 200 Reparto3 50 Reparto4 300';
+const stringaSpese = 'cancellaria 100 200 SERVIZI 200 VENDITE 50 SHOPPING 300';
 
 console.log(analizzaSpese(stringaSpese));
