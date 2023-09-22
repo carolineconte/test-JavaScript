@@ -1,3 +1,5 @@
+// diminuir o numero de entrada ate dar zero
+
 function convertToRoman(num) {
 
     const simboliRomani = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];

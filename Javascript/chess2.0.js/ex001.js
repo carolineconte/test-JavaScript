@@ -1,0 +1,1 @@
+function analizzaSpese(stringaSpese) {
