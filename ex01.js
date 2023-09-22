@@ -1,40 +1,40 @@
-function podeSerConvertidoParaNumero(str) {
-    const numero = parseFloat(str);
-    return !isNaN(numero);
-}
+function calcExpenses(str) {
+    const arr = str.split(' ');
+    const res = [];
 
+    let nomeRepartoAtual = null;
+    let somaAtual = 0;
 
-function analizzaSpese(str) {
+    for (const indice of arr) {
 
-    //let importoTotale = 0;
-    let obj = {}
-    let nomereparto = ''
-    let importo = 0
+        let valor = parseFloat(indice);
 
-    // Cicliamo attraverso le righe
-    for (let value of str) {
-        nomereparto += value
+        if (!isNaN(valor)) { // evitar que o primeiro crie o objeto com valor zero
+            somaAtual += valor;
 
-        if (value == ' ') {
-
-            if (!podeSerConvertidoParaNumero(nomereparto)) {
-                obj[nomereparto] = importo
-                 importo = 0
+        } else {
+            if (nomeRepartoAtual !== null) {
+                res.push({ reparto: nomeRepartoAtual, spesa: somaAtual });
             }
-            if (podeSerConvertidoParaNumero(nomereparto)) {
-                importo += parseFloat(nomereparto)
-                console.log(importo)
-            }
-
-            nomereparto = ''
-           
+            nomeRepartoAtual = indice;
+            somaAtual = 0;
         }
-    }
 
-    return obj
+    }
+    res.push({ reparto: nomeRepartoAtual, spesa: somaAtual });
+
+
+    return res;
 }
 
-// Esempio di utilizzo:
-const stringaSpese = 'cancellaria 100 200 SERVIZI 200 VENDITE 50 SHOPPING 300';
+const stringaSpese = 'cancellaria 100 200 200 SERVIZI 200 VENDITE 50 SHOPPING 300';
+let completo = calcExpenses(stringaSpese);
+console.log(completo)
 
-console.log(analizzaSpese(stringaSpese));
+let biggest = completo.reduce(function(atual, sucessivo){
+    if(atual.spesa > sucessivo.spesa) return atual
+    return sucessivo
+})
+
+console.log(` REPARTO CON LE SPESE PIÙ ALTE ${biggest.reparto}`)
+
