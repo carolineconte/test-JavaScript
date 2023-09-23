@@ -58,29 +58,31 @@ function mentalHealth(str) {
     let newStr = ''
     str = str.toLowerCase()
 
-    if(isHealthy(str,healthyWords)) return false
+    if (isHealthy(str, healthyWords)) return false
     if (subject(str, subjects)) { return true }
     if (point.indexOf(str[0]) > -1) { return true }
 
     for (let i = 0; i < str.length; i++) {
-
+        currentWord += str[i]
         if (currentWord == 'Cthulhu') {
+
             return true
         }
 
         if (str[i] == ' ') {
-            if (end.indexOf(currentWord.slice(-3)) > -1 && end.indexOf(str.slice(-3))) {
-                return true
-            }
             newStr += currentWord
             currentWord = ''
+        }
+
+        if (end.indexOf(currentWord.slice(-3)) > -1 && end.indexOf(str.slice(-3) > -1 && newStr.length == 0)) {
+            return true
         }
     }
 
     return false
 }
 
-console.log(mentalHealth('Papa’, come sta Church?'))
+console.log(mentalHealth('amare uno!?!'))
 
 
 /*

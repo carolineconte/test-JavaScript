@@ -8,7 +8,6 @@ function calcExpenses(str) {
     for (const indice of arr) {
 
         let valor = parseFloat(indice);
-
         if (!isNaN(valor)) { // evitar que o primeiro crie o objeto com valor zero
             somaAtual += valor;
 
@@ -31,8 +30,8 @@ const stringaSpese = 'cancellaria 100 200 200 SERVIZI 200 VENDITE 50 SHOPPING 30
 let completo = calcExpenses(stringaSpese);
 console.log(completo)
 
-let biggest = completo.reduce(function(atual, sucessivo){
-    if(atual.spesa > sucessivo.spesa) return atual
+let biggest = completo.reduce(function (atual, sucessivo) {
+    if (atual.spesa > sucessivo.spesa) return atual
     return sucessivo
 })
 
