@@ -32,3 +32,11 @@ Função ExibirTabuleiro(tabuleiro):
 tabuleiro = InicializarTabuleiro()  # Crie e configure o tabuleiro inicial
 JogoDaVida(tabuleiro, gerações=100)  # Execute o jogo por 100 gerações
 */
+
+for (let i = -1; i <= 1; i++) {
+    for (let j = -1; j <= 1; j++) {
+        console.log(i,j)
+        //const neighborX = x + i;
+        //const neighborY = y + j;
+    }
+}

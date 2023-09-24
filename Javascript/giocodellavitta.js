@@ -10,8 +10,8 @@ function isOut(cella, board) {
     let y = cella[1]
 
     return x < 0 || x >= board.length || y < 0 || y >= board.length
-
 }
+
 function presenza(cella, board) {
     let x = cella[0]
     let y = cella[1]
@@ -46,18 +46,16 @@ function presenza(cella, board) {
 
 console.log(presenza([0, 1], board))
 
-// ciclo tutte le celle 
-// se nella cella currente < 2 vicini
 function vivoOMorto(board) {
-    for (let j = 0; j < board.length; j++) {
-        let currente = board[j]
-        for (let i = 0; i < currente.length; i++) {
-            if (presenza([j, i], board) < 2) {
-                board[j][i] = ''
+    for(let x of board){
+        for (let y of x) {
+            if (presenza([x, y], board) < 2 || presenza([x, y], board) > 3) {
+                board[x][y] = ''
             }
-            if (presenza([j, i], board) == 3) {
-                board[j][i] = 'x'
+            if (presenza([x, y], board) == 3) {
+                board[x][y] = 'x'
             }
+
         }
     }
     return board
@@ -67,9 +65,9 @@ function stampa(board) {
 
     for (let i = 0; i < board.length; i++) {
         let str = ''
-        for (let j = 0; j < board.length; j++) {
-            str += board[j][i]
-            if( board[j][i] == ''){
+        for (let x = 0; x < board.length; x++) {
+            str += board[x][i]
+            if( board[x][i] == ''){
                 str += ' '
             }
         }
